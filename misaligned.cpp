@@ -23,6 +23,12 @@ void mapMinorarraytoEnum() {
         minorColorEnumtoStringMap.insert({ minorColor[i] , (MinorColor)i });
     }
 }
+
+int mapColorToNumber(MajorColor majorColor, MinorColor minorColor) {
+    int pairNumber = majorColor * 5 + minorColor;
+    return pairNumber;
+}
+
 int printColorMap() {
     int i = 0, j = 0;
     for (i = 0; i < 5; i++) {
@@ -36,10 +42,7 @@ int printColorMap() {
     return i * j;
 }
 
-int mapColorToNumber(MajorColor majorColor, MinorColor minorColor) {
-    int pairNumber = majorColor * 5 + minorColor;
-    return pairNumber;
-}
+
 int main() {
     mapMajorarraytoEnum();
     mapMinorarraytoEnum();
