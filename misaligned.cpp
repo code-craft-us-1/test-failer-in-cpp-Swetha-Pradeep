@@ -9,17 +9,17 @@ const char* minorColor[] = { "Blue", "Orange", "Green", "Brown", "Slate" };
 int numberOfMajorColors = sizeof(majorColor) / sizeof(majorColor[0]);
 int numberOfMinorColors = sizeof(minorColor) / sizeof(minorColor[0]);
 
-std::map <std::string,MajorColor> majorColorEnumtoStringMap;
-std::map <std::string, MinorColor> minorColorEnumtoStringMap;
+std::map <std::string , MajorColor> majorColorEnumtoStringMap;
+std::map <std::string , MinorColor> minorColorEnumtoStringMap;
 
 void mapMajorarraytoEnum() {
-    for (int i = 0; i<numberOfMajorColors; i++) {
+    for (int i = 0; i < numberOfMajorColors; i++) {
         majorColorEnumtoStringMap.insert({ majorColor[i] , (MajorColor)i });
     }
 }
 
 void mapMinorarraytoEnum() {
-   for (int i = 0; i < numberOfMinorColors; i++) {
+    for (int i = 0; i < numberOfMinorColors; i++) {
         minorColorEnumtoStringMap.insert({ minorColor[i] , (MinorColor)i });
     }
 }
@@ -28,7 +28,8 @@ int printColorMap() {
     for (i = 0; i < 5; i++) {
         for (j = 0; j < 5; j++) {
             std::cout << i * 5 + j << " | " << majorColor[i] << " | " << minorColor[i] << "\n";
-            int pairNumber = mapColorToNumber(majorColorEnumtoStringMap[majorColor[i]] , minorColorEnumtoStringMap[minorColor[i]]);
+            int pairNumber = mapColorToNumber(majorColorEnumtoStringMap[majorColor[i]] ,
+                                                minorColorEnumtoStringMap[minorColor[i]]);
             assert(pairNumber == (i * 5 + j));
         }
     }
