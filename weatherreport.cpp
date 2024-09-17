@@ -68,10 +68,11 @@ void TestHighPrecipitationAndLowWindspeed() {
     // This instance of stub needs to be different-
     // to give high precipitation (>60) and low wind-speed (<50)
     SensorStub sensor;
-
+    sensor.WindSpeedKMPH = 49;
     // strengthen the assert to expose the bug
     // (function returns Sunny day, it should predict rain)
     string report = Report(sensor);
+    std::cout << report << "\n";
     assert(report.find("rain") != string::npos);
     // assert(report.length() > 0);
 }
