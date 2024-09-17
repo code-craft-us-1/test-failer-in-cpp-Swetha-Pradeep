@@ -1,8 +1,8 @@
 #include <assert.h>
 #include <iostream>
 
-enum MajorColor{ White=0, Red, Black, Yellow, Violet };
-enum MinorColor{ Blue=0, Orange, Green, Brown, Slate };
+enum MajorColor{ White = 0, Red, Black, Yellow, Violet };
+enum MinorColor{ Blue = 0, Orange, Green, Brown, Slate };
 
 int printColorMap() {
     const char* majorColor[] = { "White", "Red", "Black", "Yellow", "Violet" };

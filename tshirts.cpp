@@ -5,8 +5,7 @@ char size(int cms) {
     char sizeName = '\0';
     if (cms >= 0 && cms < 35) {
         std::cout << "Kid's size" << "\n";
-    }
-    else if (cms < 38) {
+    } else if (cms < 38) {
         sizeName = 'S';
     } else if (cms > 38 && cms < 42) {
         sizeName = 'M';
