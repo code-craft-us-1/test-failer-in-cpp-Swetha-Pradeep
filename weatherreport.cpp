@@ -112,8 +112,9 @@ void TestHighPrecipitationAndLowWindspeed() {
 }  // namespace WeatherSpace
 
 int main() {
-    WeatherSpace::TestRainy();
     WeatherSpace::TestHighPrecipitationAndLowWindspeed();
+    WeatherSpace::TestRainy();
+    
     cout << "All is well (maybe)\n";
     return 0;
 }
