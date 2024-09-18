@@ -114,7 +114,6 @@ void TestHighPrecipitationAndLowWindspeed() {
 int main() {
     WeatherSpace::TestHighPrecipitationAndLowWindspeed();
     WeatherSpace::TestRainy();
-    
     cout << "All is well (maybe)\n";
     return 0;
 }
