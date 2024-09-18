@@ -74,6 +74,7 @@ class SensorDynamicStub : public IWeatherSensor {
 string Report(const IWeatherSensor& sensor) {
     int precipitation = sensor.Precipitation();
     std::cout << "precipitation" << precipitation << "\n";
+    std::cout << "WindSpeedKMPH" << sensor.WindSpeedKMPH() << "\n";
     // precipitation < 20 is a sunny day
     string report = "Sunny day";
 
@@ -100,10 +101,10 @@ void TestRainy() {
 void TestHighPrecipitationAndLowWindspeed() {
     // This instance of stub needs to be different-
     // to give high precipitation (>60) and low wind-speed (<50)
-    SensorDynamicStub sensorDyn(72, 62, 26.0, 49);
+    SensorDynamicStub *sensorDyn=new SensorDynamicStub(72, 62, 26.0, 49);
     // strengthen the assert to expose the bug
     // (function returns Sunny day, it should predict rain)
-    string report = Report(sensorDyn);
+    string report = Report(*sensorDyn);
     std::cout << report << "\n";
     assert(report.find("rain") != string::npos);
     // assert(report.length() > 0);
