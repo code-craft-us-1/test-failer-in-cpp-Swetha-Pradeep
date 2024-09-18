@@ -42,7 +42,7 @@ class SensorDynamicStub : public IWeatherSensor {
     double tempratureIncIn = 0.0;
     int windspeedkmphIn = 0;
 
-     public:
+ public:
      SensorDynamicStub(int humidity, int precipitation,
                        double tempratureInc, int windspeedkmph) {
          HumidityIn = humidity;
@@ -50,7 +50,7 @@ class SensorDynamicStub : public IWeatherSensor {
          tempratureIncIn = tempratureInc;
          windspeedkmphIn = windspeedkmph;
      }
- 
+     
      int Humidity() const override {
          return  HumidityIn;
      }
