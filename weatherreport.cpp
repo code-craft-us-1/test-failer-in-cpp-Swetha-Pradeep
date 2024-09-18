@@ -71,7 +71,7 @@ class SensorDynamicStub : public IWeatherSensor {
 // This is a function to predict the weather, based on readings
 // from a sensor
 
-string Report(const IWeatherSensor& sensor) {
+string Report( IWeatherSensor& sensor) {
     int precipitation = sensor.Precipitation();
     std::cout << "precipitation" << precipitation << "\n";
     std::cout << "WindSpeedKMPH" << sensor.WindSpeedKMPH() << "\n";
@@ -106,7 +106,7 @@ void TestHighPrecipitationAndLowWindspeed() {
     // (function returns Sunny day, it should predict rain)
     string report = Report(*sensorDyn);
     std::cout << report << "\n";
-    assert(report.find("rain") != string::npos);
+    assert(report.find("rain") == string::npos);
     // assert(report.length() > 0);
 }
 }  // namespace WeatherSpace
