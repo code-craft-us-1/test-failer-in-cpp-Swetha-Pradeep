@@ -71,7 +71,7 @@ class SensorDynamicStub : public IWeatherSensor {
 // This is a function to predict the weather, based on readings
 // from a sensor
 
-string Report( IWeatherSensor& sensor) {
+string Report(const IWeatherSensor& sensor) {
     int precipitation = sensor.Precipitation();
     std::cout << "precipitation" << precipitation << "\n";
     std::cout << "WindSpeedKMPH" << sensor.WindSpeedKMPH() << "\n";
