@@ -42,30 +42,30 @@ class SensorDynamicStub : public IWeatherSensor {
     double tempratureIncIn = 0.0;
     int windspeedkmphIn = 0;
 
- public:
-     SensorDynamicStub(int humidity, int precipitation,
-                       double tempratureInc, int windspeedkmph) {
-         HumidityIn = humidity;
-         precipitationIn = precipitation;
-         tempratureIncIn = tempratureInc;
-         windspeedkmphIn = windspeedkmph;
-     }
-     
-     int Humidity() const override {
-         return  HumidityIn;
-     }
+public:
+    SensorDynamicStub(int humidity, int precipitation,
+        double tempratureInc, int windspeedkmph) {
+        HumidityIn = humidity;
+        precipitationIn = precipitation;
+        tempratureIncIn = tempratureInc;
+        windspeedkmphIn = windspeedkmph;
+    }
 
-     int Precipitation() const override {
-         return precipitationIn;
-     }
+    int Humidity() const override {
+        return  HumidityIn;
+    }
 
-     double TemperatureInC() const override {
-         return tempratureIncIn;
-     }
+    int Precipitation() const override {
+        return precipitationIn;
+    }
 
-     int WindSpeedKMPH() const override {
-         return windspeedkmphIn;
-     }
+    double TemperatureInC() const override {
+        return tempratureIncIn;
+    }
+
+    int WindSpeedKMPH() const override {
+        return windspeedkmphIn;
+    }
 };
 
 // This is a function to predict the weather, based on readings
