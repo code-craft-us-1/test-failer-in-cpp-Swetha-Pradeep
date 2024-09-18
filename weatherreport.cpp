@@ -101,7 +101,7 @@ void TestRainy() {
 void TestHighPrecipitationAndLowWindspeed() {
     // This instance of stub needs to be different-
     // to give high precipitation (>60) and low wind-speed (<50)
-    SensorDynamicStub *sensorDyn=new SensorDynamicStub(72, 62, 26.0, 49);
+    SensorDynamicStub *sensorDyn = new SensorDynamicStub(72, 62, 26.0, 49);
     // strengthen the assert to expose the bug
     // (function returns Sunny day, it should predict rain)
     string report = Report(*sensorDyn);
