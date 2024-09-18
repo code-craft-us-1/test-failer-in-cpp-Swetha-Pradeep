@@ -73,6 +73,7 @@ class SensorDynamicStub : public IWeatherSensor {
 
 string Report(const IWeatherSensor& sensor) {
     int precipitation = sensor.Precipitation();
+    std::cout << "precipitation" << precipitation << "\n";
     // precipitation < 20 is a sunny day
     string report = "Sunny day";
 
