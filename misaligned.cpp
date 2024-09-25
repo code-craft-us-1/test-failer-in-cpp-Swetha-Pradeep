@@ -34,8 +34,6 @@ int printColorMap() {
     for (i = 0; i < numberOfMajorColors; i++) {
         for (j = 0; j < numberOfMinorColors; j++) {
             std::cout << i * 5 + j << " | " << majorColor[i] << " | " << minorColor[j] << "\n";
-            int pairNumber = mapColorToNumber(majorColorEnumtoStringMap[majorColor[i]] ,
-                                                minorColorEnumtoStringMap[minorColor[j]]);
         }
     }
     return i * j;
