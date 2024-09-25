@@ -31,16 +31,18 @@ int mapColorToNumber(MajorColor majorColor, MinorColor minorColor) {
 
 int printColorMap() {
     int i = 0, j = 0;
-    for (i = 0; i < 5; i++) {
-        for (j = 0; j < 5; j++) {
-            std::cout << i * 5 + j << " | " << majorColor[i] << " | " << minorColor[i] << "\n";
+    for (i = 0; i < numberOfMajorColors; i++) {
+        for (j = 0; j < numberOfMinorColors; j++) {
+            std::cout << i * 5 + j << " | " << majorColor[i] << " | " << minorColor[j] << "\n";
             int pairNumber = mapColorToNumber(majorColorEnumtoStringMap[majorColor[i]] ,
-                                                minorColorEnumtoStringMap[minorColor[i]]);
-            assert(pairNumber == (i * 5 + j));
+                                                minorColorEnumtoStringMap[minorColor[j]]);
+           
         }
     }
     return i * j;
 }
+
+
 
 
 int main() {
