@@ -16,14 +16,14 @@ jobs:
     - name: tshirts fail
       run: |
         g++ -Wall -Wextra -Werror tshirts.cpp -o tshirts.out
-        
+        bash ./tshirts.out
 
     - name: misaligned fail
       run: |
         g++ -Wall -Wextra -Werror misaligned.cpp -o misaligned.out
-        
+        bash ./misaligned.out
 
     - name: alerter fail
       run: |
         g++ -Wall -Wextra -Werror weatherreport.cpp -o weatherreport.out
-        
+        bash ./weatherreport.out        
