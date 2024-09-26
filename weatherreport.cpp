@@ -36,6 +36,38 @@ class SensorStub : public IWeatherSensor {
     }
 };
 
+class SensorDynamicStub : public IWeatherSensor {
+    int HumidityIn = 0;
+    int precipitationIn = 0;
+    double tempratureIncIn = 0.0;
+    int windspeedkmphIn = 0;
+
+ public:
+    SensorDynamicStub(int humidity, int precipitation,
+        double tempratureInc, int windspeedkmph) {
+        HumidityIn = humidity;
+        precipitationIn = precipitation;
+        tempratureIncIn = tempratureInc;
+        windspeedkmphIn = windspeedkmph;
+    }
+
+    int Humidity() const override {
+        return  HumidityIn;
+    }
+
+    int Precipitation() const override {
+        return precipitationIn;
+    }
+
+    double TemperatureInC() const override {
+        return tempratureIncIn;
+    }
+
+    int WindSpeedKMPH() const override {
+        return windspeedkmphIn;
+    }
+};
+
 // This is a function to predict the weather, based on readings
 // from a sensor
 
@@ -45,8 +77,10 @@ string Report(const IWeatherSensor& sensor) {
     string report = "Sunny day";
 
     if (sensor.TemperatureInC() > 25) {
-        if (precipitation >= 20 && precipitation < 60)
+        if (precipitation >= 20 && precipitation <= 60)
             report = "Partly cloudy";
+        else if ((precipitation > 60)&&(sensor.WindSpeedKMPH() <= 50))
+            report = "rainy";
         else if (sensor.WindSpeedKMPH() > 50)
             report = "Alert, Stormy with heavy rain";
     }
@@ -58,7 +92,6 @@ string Report(const IWeatherSensor& sensor) {
 void TestRainy() {
     SensorStub sensor;
     string report = Report(sensor);
-    cout << report << endl;
     assert(report.find("rain") != string::npos);
 }
 
@@ -67,18 +100,18 @@ void TestRainy() {
 void TestHighPrecipitationAndLowWindspeed() {
     // This instance of stub needs to be different-
     // to give high precipitation (>60) and low wind-speed (<50)
-    SensorStub sensor;
-
+    SensorDynamicStub *sensorDyn = new SensorDynamicStub(72, 62, 26.0, 49);
     // strengthen the assert to expose the bug
     // (function returns Sunny day, it should predict rain)
-    string report = Report(sensor);
-    assert(report.length() > 0);
+    string report = Report(*sensorDyn);
+    assert(report.find("rain") != string::npos);
+    // assert(report.length() > 0);
 }
 }  // namespace WeatherSpace
 
 int main() {
-    WeatherSpace::TestRainy();
     WeatherSpace::TestHighPrecipitationAndLowWindspeed();
+    WeatherSpace::TestRainy();
     cout << "All is well (maybe)\n";
     return 0;
 }
