@@ -3,7 +3,7 @@
 
 std::string size(int cms) {
     std::string sizeName = "INVALID";
-    if (cms >0 && cms < 38) {
+    if (cms >0 && cms <=38) {
         sizeName = "S";
     } else if (cms > 38 && cms <=42) {
         sizeName = "M";
